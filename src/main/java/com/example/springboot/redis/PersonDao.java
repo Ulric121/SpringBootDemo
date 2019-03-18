@@ -30,7 +30,7 @@ public class PersonDao {
     }
 
     public void setPerson(Person person) {
-        redisTemplate.opsForValue().set("123", person);
+        redisTemplate.opsForValue().set(person.getId(), person);
     }
 
     public Person getPerson(String id) {

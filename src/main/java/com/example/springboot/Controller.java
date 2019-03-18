@@ -23,10 +23,16 @@ public class Controller {
     private PersonDao personDao;
 
     @Log
-    @RequestMapping(value = "/fun", method = RequestMethod.GET)
-    public String fun(@RequestParam("id") String id, @RequestParam("name") String name, @RequestParam("age") int age) {
+    @RequestMapping(value = "/fun1", method = RequestMethod.GET)
+    public String fun1(@RequestParam("id") String id, @RequestParam("name") String name, @RequestParam("age") int age) {
         Person person = new Person(id, name, age);
         personDao.setPerson(person);
-        return person.toString();
+        return "success";
+    }
+
+    @Log
+    @RequestMapping(value = "/fun2", method = RequestMethod.GET)
+    public Object fun2(@RequestParam("id") String id) {
+        return personDao.getString(id);
     }
 }
