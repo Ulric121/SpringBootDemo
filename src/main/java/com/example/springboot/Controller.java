@@ -24,7 +24,7 @@ public class Controller {
 
     @Log
     @RequestMapping(value = "/fun", method = RequestMethod.GET)
-    public String fun(@RequestParam("id1") String id, @RequestParam("name") String name, @RequestParam("age") int age) {
+    public String fun(@RequestParam("id") String id, @RequestParam("name") String name, @RequestParam("age") int age) {
         Person person = new Person(id, name, age);
         personDao.setPerson(person);
         return person.toString();
