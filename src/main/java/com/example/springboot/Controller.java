@@ -4,6 +4,7 @@ import com.example.springboot.aop.Log;
 import com.example.springboot.redis.Person;
 import com.example.springboot.redis.PersonDao;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,6 +20,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class Controller {
 
+    @Value("${platform.parameter.author.name}")
+    private String authorName;
+
     @Autowired
     private PersonDao personDao;
 
@@ -33,6 +37,7 @@ public class Controller {
     @Log
     @RequestMapping(value = "/fun2", method = RequestMethod.GET)
     public Object fun2(@RequestParam("id") String id) {
+        System.out.println("测试@Value注解的使用：" + authorName);
         return personDao.getString(id);
     }
 }
