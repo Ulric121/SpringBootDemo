@@ -42,6 +42,9 @@ public class DemoInterceptor extends HandlerInterceptorAdapter {
         session.setAttribute("user", person);
         WebContextHolder.setSession(session);
 
+        // 将request放到ThreadLocal中
+        WebContextHolder.setHttpRequest(request);
+
         return true;
     }
 
