@@ -5,7 +5,7 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.stereotype.Component;
 
 /**
- * Description:
+ * Description: 切面配置类
  *
  * @author yangtao
  * @version 0.0.1

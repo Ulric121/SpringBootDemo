@@ -26,7 +26,7 @@ public class Controller {
     @Autowired
     private PersonDao personDao;
 
-    @Log
+    @Log(module = "用户管理", operation = "新增")
     @RequestMapping(value = "/fun1", method = RequestMethod.GET)
     public String fun1(@RequestParam("id") String id, @RequestParam("name") String name, @RequestParam("age") int age) {
         Person person = new Person(id, name, age);
@@ -34,7 +34,7 @@ public class Controller {
         return "success";
     }
 
-    @Log
+    @Log(module = "订单管理", operation = "查询")
     @RequestMapping(value = "/fun2", method = RequestMethod.GET)
     public Object fun2(@RequestParam("id") String id) {
         System.out.println("测试@Value注解的使用：" + authorName);
