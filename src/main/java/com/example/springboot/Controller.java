@@ -3,6 +3,7 @@ package com.example.springboot;
 import com.example.springboot.aop.Log;
 import com.example.springboot.redis.Person;
 import com.example.springboot.redis.PersonDao;
+import com.example.springboot.threadlocal.WebContextHolder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @date 2019/3/8
  */
 @RestController
+@RequestMapping("/test")
 public class Controller {
 
     @Value("${platform.parameter.author.name}")
@@ -37,6 +39,8 @@ public class Controller {
     @Log(module = "订单管理", operation = "查询")
     @RequestMapping(value = "/fun2", method = RequestMethod.GET)
     public Object fun2(@RequestParam("id") String id) {
+        Person person = (Person) WebContextHolder.getSession().getAttribute("user");
+        System.out.println("测试ThreadLocal的使用：" + person);
         System.out.println("测试@Value注解的使用：" + authorName);
         return personDao.getString(id);
     }

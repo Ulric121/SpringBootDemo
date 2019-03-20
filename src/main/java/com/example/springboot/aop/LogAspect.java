@@ -72,6 +72,8 @@ public class LogAspect {
         String module = log.module();
         // 操作名称
         String operation = log.operation();
+        System.out.println("around切面输出：模块名称【"
+                + module + "】，操作名称【" + operation + "】");
 
         // 32位主键编号
         String id = UUID.randomUUID().toString().replaceAll("-", "");
