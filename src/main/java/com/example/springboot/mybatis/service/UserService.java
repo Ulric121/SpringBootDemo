@@ -5,6 +5,8 @@ import com.example.springboot.mybatis.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * Description:
  *
@@ -18,8 +20,26 @@ public class UserService {
     @Autowired
     private UserMapper userMapper;
 
-    public User select(int id) {
-        return userMapper.select(id);
+    public List<User> getAll() {
+        List<User> userList = userMapper.getAll();
+        return userList;
     }
 
+    public User getOne(int id) {
+        User user = userMapper.getOne(id);
+        return user;
+    }
+
+    public void insert(User user) {
+        userMapper.insert(user);
+        System.out.println("新增的主键值是：" + user.getId());
+    }
+
+    public void update(User user) {
+        userMapper.update(user);
+    }
+
+    public void delete(int id) {
+        userMapper.delete(id);
+    }
 }
