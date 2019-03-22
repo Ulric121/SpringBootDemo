@@ -2,6 +2,7 @@ package com.example.springboot.mybatis.mapper;
 
 import com.example.springboot.mybatis.entity.User;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -28,7 +29,7 @@ public interface UserMapper {
      * @param id 主键
      * @return user对象
      */
-    User getOne(int id);
+    User getOne(@Param("id") int id);
 
     /**
      * 新增
@@ -49,5 +50,5 @@ public interface UserMapper {
      *
      * @param id 主键
      */
-    void delete(int id);
+    void delete(@Param("id") int id);
 }
