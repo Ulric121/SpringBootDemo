@@ -9,3 +9,4 @@
 ### 8.mybatis
 ### 9.design pattern: singleton pattern
 ### 10.design pattern: proxy pattern
+### 11.design pattern: factory pattern
