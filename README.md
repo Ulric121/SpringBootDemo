@@ -7,4 +7,5 @@
 ### 6.import and export excel
 ### 7.stream demo
 ### 8.mybatis
-### 9.design pattern: singleton
+### 9.design pattern: singleton pattern
+### 10.design pattern: proxy pattern
