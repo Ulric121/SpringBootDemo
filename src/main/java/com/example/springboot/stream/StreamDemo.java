@@ -3,6 +3,7 @@ package com.example.springboot.stream;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 /**
  * Description:Stream处理集合
@@ -53,5 +54,9 @@ public class StreamDemo {
         System.out.println("count 用来统计流中的元素个数");
         List<String> strCount = Arrays.asList("Hollis", "HollisChuang", "hollis", "Hollis666", "Hello", "HelloWorld", "Hollis");
         System.out.println(strCount.stream().count());
+
+        System.out.println("collect 用来转换成List");
+        List<String> strCollect = Arrays.asList("Hollis", "HollisChuang", "hollis", "Hollis666", "Hello", "HelloWorld", "Hollis");
+        List<String> strCollectList = strCollect.stream().collect(Collectors.toList());
     }
 }
